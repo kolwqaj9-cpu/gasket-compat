@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gasket &amp; Seal Material Compatibility Lookup — gasket-compat</title>
+<meta name="description" content="Interactive chemical compatibility table for 8 gasket and seal elastomers against 12 industrial fluids. Ratings from the Parker O-Ring Handbook (ORD 5700) and RMA IP-3 consensus.">
+<link rel="canonical" href="https://kolwqaj9-cpu.github.io/gasket-compat/">
+<style>
+  :root{--ink:#1f2328;--muted:#6b7280;--line:#e5e7eb;--good:#1a7f37;--fair:#b8860b;--bad:#c0392b;--excel:#0e6b2e}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);margin:0;line-height:1.6;background:#fafbfc}
+  .page-wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);flex-wrap:wrap;gap:10px}
+  .brand{font-weight:700}
+  nav a{color:var(--ink);text-decoration:none;margin-left:18px;font-size:14px}
+  nav a:hover{text-decoration:underline}
+  article{padding:26px 0 10px}
+  h1{font-size:26px;line-height:1.25;margin:0 0 8px}
+  h2{font-size:18px;margin:26px 0 10px}
+  .heritage-bridge{color:var(--muted);font-size:13.5px;margin:0 0 18px}
+  .controls{display:flex;gap:14px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:16px 0}
+  .controls label{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:4px;min-width:220px;flex:1}
+  select{padding:8px 10px;font-size:14px;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .verdict{margin:12px 0;padding:12px 14px;border-radius:8px;font-size:14px;background:#f6f8ff;border:1px solid #dbe3ff}
+  .verdict b{display:inline-block;margin-right:8px}
+  .chip{display:inline-block;padding:1px 9px;border-radius:99px;font-size:12px;font-weight:600;margin:2px 3px 2px 0;border:1px solid}
+  .chip.excel{background:#e8f5ec;color:var(--good);border-color:#bfe3c9}
+  .chip.good{background:#effaf2;color:var(--good);border-color:#cde9d4}
+  .chip.fair{background:#fff8e6;color:var(--fair);border-color:#f0d9a0}
+  .chip.bad{background:#fdecea;color:var(--bad);border-color:#f5c6c0}
+  .table-scroll{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:10px;margin:16px 0}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{padding:8px 9px;text-align:center;border-bottom:1px solid #eef0f3}
+  th{background:#fafbfc;font-weight:600;font-size:12.5px;position:sticky;top:0}
+  td:first-child,th:first-child{text-align:left;position:sticky;left:0;background:#fff;font-weight:600;white-space:nowrap}
+  thead th:first-child{background:#fafbfc;z-index:1}
+  tr:hover td{background:#f7f9fc}
+  .cell{display:inline-block;min-width:56px;padding:2px 4px;border-radius:6px;font-weight:600;font-size:12.5px}
+  .c4{background:#e8f5ec;color:var(--good)}
+  .c3{background:#effaf2;color:var(--good)}
+  .c2{background:#fff8e6;color:var(--fair)}
+  .c1{background:#fdecea;color:var(--bad)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin:8px 0 4px}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+  .dot.e{background:var(--good)}.dot.g{background:#7cc78a}.dot.f{background:var(--fair)}.dot.b{background:var(--bad)}
+  .note{background:#fff8e6;border:1px solid #f0d9a0;border-radius:8px;padding:12px 14px;font-size:13px;margin:16px 0}
+  .note strong{color:#8a6d3b}
+  footer{border-top:1px solid var(--line);padding:18px 0 30px;font-size:12.5px;color:var(--muted)}
+  footer a{color:var(--muted)}
+  .reset{font-size:13px;color:#2563eb;cursor:pointer;text-decoration:underline;margin-left:10px}
+
+ body{background:#fafbfc;padding:24px 16px}
+ .page{max-width:840px;margin:0 auto}
+ h1{font-size:26px;margin:0 0 8px;line-height:1.25}
+ .lede{color:#6b7280;font-size:14.5px;margin:0 0 20px}
+ .foot{margin-top:22px;padding-top:14px;border-top:1px solid #e5e7eb;font-size:13px;color:#6b7280}
+ .foot a{color:#1a5fb4;text-decoration:none;font-weight:600}
+ .box{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px 18px;margin:16px 0;font-size:13.5px}
+</style>
+</head>
+<body><div class="page">
+<h1>Gasket &amp; Seal Material Compatibility Lookup</h1>
+<p class="lede">Eight elastomers against twelve industrial fluids. Ratings follow the public elastomer-compatibility consensus compiled from the Parker O-Ring Handbook (ORD 5700) and the RMA Rubber Handbook &mdash; IP-3 Rubber Product Selector.</p>
+
+
+
+
+<div class="controls">
+  <label>Select a fluid / chemical
+    <select id="fluid"><option value="">— Show all —</option></select>
+  </label>
+  <label>Select a material
+    <select id="material"><option value="">— Show all —</option></select>
+  </label>
+</div>
+
+<div class="verdict" id="verdict">
+  Pick a fluid <b>or</b> a material above. Recommended and unsuitable pairings are highlighted below.
+</div>
+
+<div class="table-scroll">
+<table id="matrix">
+  <thead><tr><th>Fluid / chemical</th></tr></thead>
+  <tbody></tbody>
+</table>
+</div>
+
+<div class="legend">
+  <span><span class="dot e"></span> Excellent</span>
+  <span><span class="dot g"></span> Good</span>
+  <span><span class="dot f"></span> Fair (limited)</span>
+  <span><span class="dot b"></span> Not recommended</span>
+</div>
+
+<div class="note">
+  <strong>Preliminary screening only.</strong> Compatibility depends on fluid concentration, temperature, pressure and exposure time. Always confirm a specific grade with the material supplier and, for critical seals, run an immersion or coupon test before production.
+</div>
+<div class="note" style="background:#f6f8ff;border-color:#dbe3ff">
+  <strong>References.</strong> The four-level ratings follow the public elastomer-compatibility consensus consolidated from the <em>Parker O-Ring Handbook (ORD 5700)</em> and the <em>RMA Rubber Handbook — IP-3 Rubber Product Selector</em>, cross-checked against published supplier chemical-resistance charts (DuPont, Dow, ExxonMobil). Where the literature disagrees, the more conservative rating is shown.
+</div>
+
+<div class="box">
+  <strong>About this data.</strong> The same table, with the reasoning behind each rating and a printable reference, is maintained at
+  <a href="https://bentleymfg.com/gasket-material-compatibility.html">Bentley Manufacturing Archive &mdash; Gasket Material Compatibility</a>.
+  The underlying dataset is also published as the package <code>gasket-compat</code>.
+  <br><br>
+  <strong>Preliminary screening only.</strong> Compatibility depends on fluid concentration, temperature, pressure and exposure time.
+  Confirm a specific grade with the material supplier and run an immersion or coupon test for critical seals.
+</div>
+<div class="foot">
+  <p>Source data: Parker O-Ring Handbook (ORD 5700); RMA Rubber Handbook &mdash; IP-3 Rubber Product Selector. Cross-checked against DuPont, Dow and ExxonMobil chemical-resistance charts.</p>
+  <p>Compiled by <a href="https://bentleymfg.com/">Bentley Manufacturing Archive</a>. Code and data compilation released under MIT.</p>
+</div>
+</div>
+<script>// Compatibility matrix: 4=Excellent 3=Good 2=Fair 1=Not recommended
+// Based on the public elastomer-compatibility consensus (Parker O-Ring Handbook / supplier charts); screening only.
+const MATERIALS = [
+  {id:"ptfe", name:"PTFE (Teflon)"},
+  {id:"fkm",  name:"FKM (Viton)"},
+  {id:"nbr",  name:"NBR (Buna-N)"},
+  {id:"hnbr", name:"HNBR"},
+  {id:"epdm", name:"EPDM"},
+  {id:"sili", name:"Silicone"},
+  {id:"neo",  name:"Neoprene"},
+  {id:"tpe",  name:"TPE"},
+];
+const FLUIDS = [
+  {id:"oil",    name:"Mineral oil / lubricant",            r:{ptfe:4,fkm:4,nbr:4,hnbr:4,epdm:1,sili:2,neo:3,tpe:2}},
+  {id:"fuel",   name:"Gasoline / fuel",                    r:{ptfe:4,fkm:4,nbr:4,hnbr:4,epdm:1,sili:2,neo:3,tpe:2}},
+  {id:"arom",   name:"Aromatics (toluene, benzene)",       r:{ptfe:4,fkm:4,nbr:2,hnbr:3,epdm:2,sili:1,neo:2,tpe:2}},
+  {id:"ketone", name:"Ketones (acetone, MEK)",             r:{ptfe:4,fkm:1,nbr:1,hnbr:1,epdm:3,sili:3,neo:1,tpe:2}},
+  {id:"ester",  name:"Esters (acetates)",                  r:{ptfe:4,fkm:1,nbr:2,hnbr:2,epdm:3,sili:3,neo:2,tpe:2}},
+  {id:"alcohol",name:"Alcohols (ethanol, methanol)",       r:{ptfe:4,fkm:3,nbr:3,hnbr:4,epdm:4,sili:3,neo:4,tpe:3}},
+  {id:"dilacid",name:"Dilute acid (<=10% sulfuric/HCl)",   r:{ptfe:4,fkm:4,nbr:3,hnbr:3,epdm:4,sili:2,neo:3,tpe:3}},
+  {id:"concacid",name:"Strong acid (conc. sulfuric/nitric)",r:{ptfe:4,fkm:3,nbr:1,hnbr:1,epdm:2,sili:1,neo:2,tpe:2}},
+  {id:"alkali", name:"Alkali (sodium hydroxide)",          r:{ptfe:4,fkm:2,nbr:3,hnbr:3,epdm:4,sili:2,neo:4,tpe:3}},
+  {id:"water",  name:"Water / steam",                      r:{ptfe:4,fkm:4,nbr:3,hnbr:4,epdm:4,sili:3,neo:4,tpe:3}},
+  {id:"refrig", name:"Refrigerant (R-134a, R-410A)",       r:{ptfe:4,fkm:3,nbr:2,hnbr:2,epdm:1,sili:1,neo:4,tpe:2}},
+  {id:"ozone",  name:"Ozone / atmospheric aging",          r:{ptfe:4,fkm:4,nbr:1,hnbr:3,epdm:4,sili:4,neo:3,tpe:2}},
+];
+const LABEL = {4:"Excellent",3:"Good",2:"Fair",1:"Not recommended"};
+const CLS = {4:"c4",3:"c3",2:"c2",1:"c1"};
+
+const fluidSel = document.getElementById("fluid");
+const matSel = document.getElementById("material");
+const verdict = document.getElementById("verdict");
+const thead = document.querySelector("#matrix thead tr");
+const tbody = document.querySelector("#matrix tbody");
+
+FLUIDS.forEach(f=>{ const o=document.createElement("option"); o.value=f.id; o.textContent=f.name; fluidSel.appendChild(o); });
+MATERIALS.forEach(m=>{ const o=document.createElement("option"); o.value=m.id; o.textContent=m.name; matSel.appendChild(o); });
+
+MATERIALS.forEach(m=>{ const th=document.createElement("th"); th.textContent=m.name; th.dataset.mid=m.id; thead.appendChild(th); });
+
+function render(){
+  const fSel = fluidSel.value, mSel = matSel.value;
+  tbody.innerHTML = "";
+  FLUIDS.forEach(f=>{
+    const tr = document.createElement("tr");
+    const td0 = document.createElement("td");
+    td0.textContent = f.name;
+    if(fSel && fSel!==f.id) td0.style.opacity = "0.35";
+    tr.appendChild(td0);
+    MATERIALS.forEach(m=>{
+      const td = document.createElement("td");
+      const v = f.r[m.id];
+      const span = document.createElement("span");
+      span.className = "cell " + CLS[v];
+      span.textContent = LABEL[v];
+      let dim = false;
+      if(fSel && fSel===f.id && mSel===m.id){ /* both */ }
+      else if(fSel && fSel===f.id && !mSel){ /* highlight row */ }
+      else if(mSel && mSel===m.id && !fSel){ /* highlight col */ }
+      else if(fSel && fSel!==f.id){ dim = true; }
+      else if(mSel && mSel!==m.id){ dim = true; }
+      if(dim){ td.style.opacity = "0.3"; }
+      else if(fSel && fSel===f.id){ td.style.outline = "2px solid #2563eb"; td.style.outlineOffset="-2px"; }
+      else if(mSel && mSel===m.id){ td.style.outline = "2px solid #2563eb"; td.style.outlineOffset="-2px"; }
+      td.appendChild(span);
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  renderVerdict();
+}
+
+function chips(arr, cls){
+  return arr.map(x=>`<span class="chip ${cls}">${x}</span>`).join("");
+}
+function renderVerdict(){
+  const f = FLUIDS.find(x=>x.id===fluidSel.value);
+  const m = MATERIALS.find(x=>x.id===matSel.value);
+  if(!f && !m){
+    verdict.innerHTML = "Pick a fluid <b>or</b> a material above. Recommended and unsuitable pairings are highlighted below.";
+    return;
+  }
+  if(f && m){
+    const v = f.r[m.id];
+    verdict.innerHTML = `<b>${f.name}</b> &times; <b>${m.name}</b> &rarr; <span class="chip ${CLS[v]}">${LABEL[v]}</span>`;
+    return;
+  }
+  if(f){
+    const good=[], bad=[];
+    MATERIALS.forEach(mm=>{ const v=f.r[mm.id]; if(v>=3) good.push(mm.name); else if(v<=1) bad.push(mm.name); });
+    verdict.innerHTML = `<b>${f.name}</b>: ` +
+      (good.length? `recommended ${chips(good,"good")}`:"") +
+      (bad.length? `avoid ${chips(bad,"bad")}`:"");
+  }
+  if(m){
+    const good=[], bad=[];
+    FLUIDS.forEach(ff=>{ const v=ff.r[m.id]; if(v>=3) good.push(ff.name); if(v<=1) bad.push(ff.name); });
+    verdict.innerHTML = `<b>${m.name}</b> suits: ${chips(good,"good")}` +
+      (bad.length? ` &nbsp;not for: ${chips(bad,"bad")}`:"");
+  }
+}
+fluidSel.addEventListener("change", render);
+matSel.addEventListener("change", render);
+render();
+</script>
+</body>
+</html>
