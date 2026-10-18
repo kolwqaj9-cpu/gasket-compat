@@ -1,0 +1,44 @@
+{
+  "name": "gasket-compat",
+  "version": "1.0.0",
+  "description": "Gasket and seal material chemical compatibility lookup: 8 elastomers against 12 industrial fluids, rated from the public Parker O-Ring / RMA consensus.",
+  "main": "index.js",
+  "bin": {
+    "gasket-compat": "cli.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js",
+    "data/compat.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "gasket",
+    "gasket-material",
+    "seal",
+    "elastomer",
+    "chemical-compatibility",
+    "o-ring",
+    "ptfe",
+    "fkm",
+    "viton",
+    "epdm",
+    "nbr",
+    "engineering",
+    "reference-data"
+  ],
+  "homepage": "https://bentleymfg.com/gasket-material-compatibility.html",
+  "bugs": {
+    "url": "https://bentleymfg.com/contact.html"
+  },
+  "license": "MIT",
+  "author": "Bentley Manufacturing Archive",
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "test": "node test.js",
+    "demo": "node cli.js --fluid \"mineral oil\""
+  }
+}
