@@ -1,0 +1,37 @@
+{
+  "materials": [
+    { "id": "ptfe", "name": "PTFE (Teflon)", "family": "fluoropolymer" },
+    { "id": "fkm", "name": "FKM (Viton)", "family": "fluoroelastomer" },
+    { "id": "nbr", "name": "NBR (Buna-N)", "family": "nitrile rubber" },
+    { "id": "hnbr", "name": "HNBR", "family": "hydrogenated nitrile" },
+    { "id": "epdm", "name": "EPDM", "family": "ethylene propylene" },
+    { "id": "sili", "name": "Silicone", "family": "silicone rubber" },
+    { "id": "neo", "name": "Neoprene", "family": "chloroprene" },
+    { "id": "tpe", "name": "TPE", "family": "thermoplastic elastomer" }
+  ],
+  "fluids": [
+    { "id": "oil", "name": "Mineral oil / lubricant", "r": { "ptfe": 4, "fkm": 4, "nbr": 4, "hnbr": 4, "epdm": 1, "sili": 2, "neo": 3, "tpe": 2 } },
+    { "id": "fuel", "name": "Gasoline / fuel", "r": { "ptfe": 4, "fkm": 4, "nbr": 4, "hnbr": 4, "epdm": 1, "sili": 2, "neo": 3, "tpe": 2 } },
+    { "id": "arom", "name": "Aromatics (toluene, benzene)", "r": { "ptfe": 4, "fkm": 4, "nbr": 2, "hnbr": 3, "epdm": 2, "sili": 1, "neo": 2, "tpe": 2 } },
+    { "id": "ketone", "name": "Ketones (acetone, MEK)", "r": { "ptfe": 4, "fkm": 1, "nbr": 1, "hnbr": 1, "epdm": 3, "sili": 3, "neo": 1, "tpe": 2 } },
+    { "id": "ester", "name": "Esters (acetates)", "r": { "ptfe": 4, "fkm": 1, "nbr": 2, "hnbr": 2, "epdm": 3, "sili": 3, "neo": 2, "tpe": 2 } },
+    { "id": "alcohol", "name": "Alcohols (ethanol, methanol)", "r": { "ptfe": 4, "fkm": 3, "nbr": 3, "hnbr": 4, "epdm": 4, "sili": 3, "neo": 4, "tpe": 3 } },
+    { "id": "dilacid", "name": "Dilute acid (<=10% sulfuric/HCl)", "r": { "ptfe": 4, "fkm": 4, "nbr": 3, "hnbr": 3, "epdm": 4, "sili": 2, "neo": 3, "tpe": 3 } },
+    { "id": "concacid", "name": "Strong acid (conc. sulfuric/nitric)", "r": { "ptfe": 4, "fkm": 3, "nbr": 1, "hnbr": 1, "epdm": 2, "sili": 1, "neo": 2, "tpe": 2 } },
+    { "id": "alkali", "name": "Alkali (sodium hydroxide)", "r": { "ptfe": 4, "fkm": 2, "nbr": 3, "hnbr": 3, "epdm": 4, "sili": 2, "neo": 4, "tpe": 3 } },
+    { "id": "water", "name": "Water / steam", "r": { "ptfe": 4, "fkm": 4, "nbr": 3, "hnbr": 4, "epdm": 4, "sili": 3, "neo": 4, "tpe": 3 } },
+    { "id": "refrig", "name": "Refrigerant (R-134a, R-410A)", "r": { "ptfe": 4, "fkm": 3, "nbr": 2, "hnbr": 2, "epdm": 1, "sili": 1, "neo": 4, "tpe": 2 } },
+    { "id": "ozone", "name": "Ozone / atmospheric aging", "r": { "ptfe": 4, "fkm": 4, "nbr": 1, "hnbr": 3, "epdm": 4, "sili": 4, "neo": 3, "tpe": 2 } }
+  ],
+  "scale": {
+    "4": "Excellent",
+    "3": "Good",
+    "2": "Fair (limited)",
+    "1": "Not recommended"
+  },
+  "sources": [
+    "Parker O-Ring Handbook (ORD 5700)",
+    "RMA Rubber Handbook - IP-3 Rubber Product Selector"
+  ],
+  "disclaimer": "Preliminary screening only. Compatibility depends on concentration, temperature, pressure and exposure time. Confirm a specific grade with the material supplier and run an immersion or coupon test for critical seals."
+}
